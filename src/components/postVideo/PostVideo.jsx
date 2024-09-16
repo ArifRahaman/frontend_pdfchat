@@ -22,7 +22,7 @@ const PostVideo = () => {
     formData.append("name", videoName); // Include video name in the form data
     console.log(videoName);
     try {
-      const res = await axios.post("http://localhost:3001/upload", formData, {
+      const res = await axios.post(`${import.meta.env.VITE_BACKEND_DOMAIN}/upload`, formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });
       setUploadedVideoUrl(res.data.videoUrl);
@@ -34,7 +34,7 @@ const PostVideo = () => {
   // Fetch all video URLs and names from the server
   const fetchVideos = async () => {
     try {
-      const res = await axios.get("http://localhost:3001/videos");
+      const res = await axios.get(`${import.meta.env.VITE_BACKEND_DOMAIN}/videos`);
       setVideos(res.data);
     } catch (err) {
       console.error(err);
