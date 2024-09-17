@@ -139,7 +139,7 @@ const OtpVerification = () => {
             if (response.data.message === 'OTP verified') {
                 localStorage.setItem('userId', response.data.userId); // Store userId in localStorage
                 localStorage.setItem("author", response.data.username);
-
+                localStorage.setItem("jwt",response.data.token);
                 navigate('/upload');
                 window.location.reload();
             }
